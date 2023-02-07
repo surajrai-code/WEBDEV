@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>expanseTracker</title>
+</head>
+
+<body>
+    <section>
+        <article>
+            <form id="expForm">
+                <label for="a">Choose Expense Amount</label>
+                <input type="number" name="Expense" id="a" required />
+
+                <label for="b">Choose Description</label>
+                <input type="text" name="Description" id="b"  required/>
+
+                <label for="c">Choose Category </label>
+                <select name="Category" id="c" required>
+                    <option>choose one</option>
+                    <option>recharge</option>
+                    <option>fuel</option>
+                    <option>ride</option>
+                    <option>chai</option>
+                    <option>sutta</option>
+                </select>
+                <input type="button" value="add expance" class="btn" id="btn_add_expense">
+            </form>
+
+        </article>
+        <article>
+            <ol class="print" id="d"></ol>
+        </article>
+    </section>
+
+    <script>
+   let amount=document.getElementById('a');
+   let disc=document.getElementById('b');
+    let data=document.getElementById('c');
+    console.log(amount);
+    console.log(disc);
+    console.log(data);
+    let form=document.getElementById('btn_add_expense');
+     let ol = document.querySelector("ol");
+     form.addEventListener("submit", e => {
+        let user=[];
+        e.preventDefault();
+        console.log(form);
+        });
+       
+            form.addEventListener("click", (e) => {
+                ol.innerHTML += `<li> ${amount.value} - ${disc.value} - ${data.value} <button onclick='deleteItem()'>Delete Expense</button> <button onclick='editItem()'>Edit Expense</button> </li>`;
+                console.log(form);
+               
+            })
+            function deleteItem(){
+                    ol.remove(ol);
+                 }
+
+    </script>
+</body>
+
+</html>
