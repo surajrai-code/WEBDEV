@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function createPost()
+{
+    return new Promise((resolve, reject)=>{
+
+})  
+}
+const userpost={
+    username:"suraj",
+    lastUserActivityTime:'19-12-2022'
+};
+function updateLastUserActivityTime(){
+    return new Promise((resolve, reject)=>{
+        setTimeout(()=>{
+            userpost.lastUserActivityTime=new Date().getTime();
+            resolve(userpost.lastUserActivityTime)
+        },1000)
+    })
+}
+Promise.all([createPost({title: 'Post Five', body: 'This is Post Five'}), updateLastUserActivityTime()]).then(([createPostresolve,updateLastUserActivityTimeresolve])=>{
+console.log(updateLastUserActivityTimeresolve);
+}).catch(err=>console.log(err));
+
+
+</script>
+</body>
+</html>
